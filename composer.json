@@ -1,0 +1,13 @@
+{
+    "name": "thescientist23/keyword-router",
+    "description": "SMS router for different application",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "KeywordRouter\\":"src/"
+        }
+    }
+}
