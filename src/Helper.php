@@ -42,7 +42,7 @@ class Helper
      */
     static function getConfig()
     {
-        $configurations = require SITE_ROOT . '/config.php';
+        $configurations = require SITE_ROOT . '/settings.php';
 
         return $configurations;
     }
