@@ -79,11 +79,10 @@ WHERE
         $result = $query->get_result()->fetch_object();
 
         if ($result) {
-
             $http = new Client();
-
             $http->request('POST', $result->dn_url, ['form_params' => $this->payload]);
-
+        } else {
+            file_put_contents('/tmp/v8Mo_NR_v2_29290633' . time(), http_build_query($this->payload_str));
         }
 
         $query->close();

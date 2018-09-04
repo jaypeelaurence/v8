@@ -62,9 +62,9 @@ class SMS
             "secret_key"    => $this->config['secret_key']
         );
 
-//        $http = new Client();
-//
-//        $http->request('POST', $this->config['url'], ['form_params' => $body]);
+        $http = new Client();
+
+        $http->request('POST', $this->config['url'], ['form_params' => $body]);
 
     }
 }
