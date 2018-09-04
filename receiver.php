@@ -9,15 +9,15 @@
 define('SITE_ROOT', __DIR__);
 require 'vendor/autoload.php';
 
-//$postData = 'message=EDN+87C82220&message_type=incoming&mobile_number=639455712578&request_id=4f2a7dd0-af1c-11e8-aadd-8bff7ed8ffb0&shortcode=29290633&timestamp=1535939675';
+//$postData = 'message=edn+87C82220&message_type=incoming&mobile_number=639455712578&request_id=4f2a7dd0-af1c-11e8-aadd-8bff7ed8ffb0&shortcode=29290633&timestamp=1535939675';
 $postData = file_get_contents('php://input');
 
-if ($postData) {
+if (!empty($postData)) {
     file_put_contents('/tmp/v8Mo_MR_29290633-' . time(), $postData); /*for testing*/
     parse_str($postData, $messageBody);
 
     // if need to route to new app
-    $kw = explode(' ', $messageBody)[0];
+    $kw = explode(' ', $messageBody['message'])[0];
     if (strtoupper($kw) !== 'BPS') {
         $route = new \KeywordRouter\ReceiverRouter($postData);
         $route->createTransaction();

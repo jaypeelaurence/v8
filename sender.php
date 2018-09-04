@@ -8,11 +8,12 @@
 define('SITE_ROOT', __DIR__);
 require 'vendor/autoload.php';
 
-$postData = file_get_contents('php://input');
-//$post_data = 'message_type=REPLY&mobile_number=09175707189&message=THIS%20IS%20TEST%20 REPLY MESSAGE&request_id=4f2a7dd0-af1c-11e8-aadd-8bff7ed8ffb0&keyword=BPS';
-//$post_data = 'message_type=SEND&mobile_number=09175707189&message=THIS%20IS%20TEST%20 SEND MESSAGE&keyword=BPS';
+//$postData = 'message_type=REPLY&mobile_number=639455712578&message=THIS%20IS%20TEST%20 REPLY MESSAGE&request_id=4f2a7dd0-af1c-11e8-aadd-8bff7ed8ffb0&keyword=edn';
+//$postData = 'message_type=SEND&mobile_number=09175707189&message=THIS%20IS%20TEST%20 SEND MESSAGE&keyword=BPS';
 
-if ($postData) {
+$postData = file_get_contents('php://input');
+
+if (!empty($postData)) {
     file_put_contents('/tmp/v8Mo_SND_29290633-' . time(), $postData);
     parse_str($postData, $messageBody);
 

@@ -42,6 +42,12 @@ class SMS
             "secret_key"    => $this->config['secret_key']
         );
 
+        echo '<pre>';
+        print_r($body);
+        echo '</pre>';
+
+        exit;
+
         $http = new Client();
 
         $http->request('POST', $this->config['url'], ['form_params' => $body]);
@@ -61,6 +67,12 @@ class SMS
             "client_id"     => $this->config['client_id'],
             "secret_key"    => $this->config['secret_key']
         );
+
+        echo '<pre>';
+        print_r($body);
+        echo '</pre>';
+
+        exit;
 
         $http = new Client();
 

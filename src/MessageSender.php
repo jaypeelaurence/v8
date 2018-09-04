@@ -34,7 +34,7 @@ class MessageSender
     {
         $conn = Database::getInstance()->connection();
 
-        $keyword = $this->payload['keyword'];
+        $keyword = strtoupper($this->payload['keyword']);
         $type = $this->payload['message_type'];
         $content = $this->payload_str;
         $msg_id = $this->payload['message_id'];

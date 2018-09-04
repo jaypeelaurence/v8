@@ -8,11 +8,11 @@
 define('SITE_ROOT', __DIR__);
 require 'vendor/autoload.php';
 
-$result = file_get_contents('php://input');
-//$result = 'credits_cost=0.500000&message_id=780098cfa448fe7f1f8e12b65daa9d2b&message_type=outgoing&shortcode=29290633&status=SENT&timestamp=1535939684';
+//$postData = 'credits_cost=0.500000&message_id=66b25f0c8807a8b390665d7dd5c2c297&message_type=outgoing&shortcode=29290633&status=SENT&timestamp=1535939684';
+$postData = file_get_contents('php://input');
 
-if ($result) {
-    $route = new \KeywordRouter\NotificationRouter($result);
+if (!empty($postData)) {
+    $route = new \KeywordRouter\NotificationRouter($postData);
     $route->createTransaction();
     $route->deploy();
 }

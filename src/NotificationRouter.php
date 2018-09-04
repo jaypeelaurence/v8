@@ -71,18 +71,18 @@ FROM
         LEFT JOIN
     keyword AS kw ON tout.keyword = kw.name
 WHERE
-    tres.msg_id =?');
+    tres.msg_id =? LIMIT 1');
 
         $query->bind_param('s', $this->payload['message_id']);
         $query->execute();
-
         $result = $query->get_result()->fetch_object();
 
-        if ($result) {
+        if ($result->dn_url) {
             $http = new Client();
             $http->request('POST', $result->dn_url, ['form_params' => $this->payload]);
         } else {
-            file_put_contents('/tmp/v8Mo_NR_v2_29290633' . time(), http_build_query($this->payload_str));
+            // TODO: refactor after wyeth campaign
+            file_put_contents('/tmp/v8Mo_NR_v2_29290633' . time(), $this->payload_str);
         }
 
         $query->close();

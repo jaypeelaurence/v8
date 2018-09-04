@@ -67,7 +67,7 @@ class ReceiverRouter extends Router
 
     function createTransaction()
     {
-        $keyword = $this->keyword->getName();
+        $keyword = strtoupper($this->keyword->getName());
         $type = $this->payload['message_type'];
         $content = $this->payload_str;
         $request_id = $this->payload['request_id'];
