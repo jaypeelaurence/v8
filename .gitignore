@@ -1,5 +1,5 @@
 /vendor/
 /logs
-config.php
+settings.php
 .idea/workspace.xml
 .idea/vcs.xml
