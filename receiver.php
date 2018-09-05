@@ -6,6 +6,8 @@
  * Time: 12:14 PM
  */
 
+use GuzzleHttp\Client;
+
 define('SITE_ROOT', __DIR__);
 require 'vendor/autoload.php';
 
@@ -103,5 +105,5 @@ if (!empty($postData)) {
     }
 
 } else {
-    file_put_contents('/tmp/v8Mo_MR_29290633_NODATA-' . time(), $post_data); /*for testing*/
+    file_put_contents('/tmp/v8Mo_MR_29290633_NODATA-' . time(), $postData); /*for testing*/
 }
