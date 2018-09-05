@@ -5,6 +5,9 @@
  * Date: 9/3/18
  * Time: 12:14 PM
  */
+
+use GuzzleHttp\Client;
+
 define('SITE_ROOT', __DIR__);
 require 'vendor/autoload.php';
 
