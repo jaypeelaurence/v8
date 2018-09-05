@@ -87,7 +87,6 @@ WHERE
 
         $query->close();
 
-
     }
 
 }
