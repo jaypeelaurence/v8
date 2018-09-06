@@ -25,7 +25,7 @@ class MessageSender
 
         $this->payload_str = $str;
 
-        $this->payload['message_id'] = md5(uniqid(rand(), true));
+        $this->payload['message_id'] = (array_key_exists('message_id', $this->payload) && isset($this->payload['message_id'])) ? $this->payload['message_id'] : md5(uniqid(rand(), true));
 
         $this->save();
     }

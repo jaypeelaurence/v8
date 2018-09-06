@@ -50,7 +50,7 @@ class ReceiverRouter extends Router
                 'message_type' => SMS::MSG_TYPE_REPLY,
                 'mobile_number' => $this->payload['mobile_number'],
                 'request_id' => $this->payload['request_id'],
-                'message' => 'Invalid keyword.',
+                'message' => 'You have entered an invalid keyword.',
                 'keyword' => 'KR',
             );
 
