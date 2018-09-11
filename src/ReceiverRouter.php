@@ -59,9 +59,12 @@ class ReceiverRouter extends Router
             exit;
         }
 
+        $this->conn = Database::getInstance()->connection();
+
         $this->keyword = new Keyword($name);
 
-        $this->conn = Database::getInstance()->connection();
+        $filename = SITE_ROOT . '/logs/error_transaction.log';
+        file_put_contents($filename, 'tester:'. $this->keyword->getToUrl());
 
     }
 
@@ -104,9 +107,6 @@ class ReceiverRouter extends Router
     function deploy()
     {
         $client = new Client();
-
-        $filename = SITE_ROOT . '/logs/error_transaction.log';
-        file_put_contents($filename, 'tester:'. $this->keyword->getToUrl());
 
         $client->request('POST', $this->keyword->getToUrl(), ['form_params' => $this->payload]);
     }
