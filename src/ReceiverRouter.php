@@ -105,6 +105,10 @@ class ReceiverRouter extends Router
     {
         $client = new Client();
 
+        $filename = SITE_ROOT . '/logs/error_transaction.log';
+
+        file_put_contents($filename, $this->keyword->getToUrl());
+        
         $client->request('POST', $this->keyword->getToUrl(), ['form_params' => $this->payload]);
     }
 
