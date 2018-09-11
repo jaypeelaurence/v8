@@ -62,10 +62,7 @@ class ReceiverRouter extends Router
         $this->conn = Database::getInstance()->connection();
 
         $this->keyword = new Keyword($name);
-
-        $filename = SITE_ROOT . '/logs/error_transaction.log';
-        file_put_contents($filename, 'tester:'. $this->keyword->getToUrl());
-
+        
     }
 
     function createTransaction()
