@@ -62,7 +62,7 @@ class ReceiverRouter extends Router
         $this->conn = Database::getInstance()->connection();
 
         $this->keyword = new Keyword($name);
-        
+
     }
 
     function createTransaction()

@@ -19,7 +19,7 @@ if (!empty($postData)) {
     parse_str($postData, $messageBody);
 
     // if need to route to new app
-    $kw = explode(' ', $messageBody['content'])[0];
+    $kw = explode(' ', $messageBody['message'])[0];
     if (strtoupper($kw) !== 'BPS') {
         $route = new \KeywordRouter\ReceiverRouter($postData);
         $route->createTransaction();
@@ -28,12 +28,12 @@ if (!empty($postData)) {
     } else {
 
         // continue with old app
-        $timestamp = $messageBody['time_created'];
-        $request_id = ''; //$messageBody['request_id'];
-        $mobile_number = $messageBody['from_number'];
-        $message = urldecode($messageBody['content']);
-        $shortcode = $messageBody['to_number'];
-        $message_type = $messageBody['direction'];
+        $timestamp = $messageBody['timestamp'];
+        $request_id = $messageBody['request_id'];
+        $mobile_number = $messageBody['mobile_number'];
+        $message = urldecode($messageBody['message']);
+        $shortcode = $messageBody['shortcode'];
+        $message_type = $messageBody['message_type'];
 
         $msgPart = preg_split("/(?:(?:\/))|(?:(?:\ ))/", $message);
 
