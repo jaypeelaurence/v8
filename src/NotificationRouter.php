@@ -62,16 +62,15 @@ class NotificationRouter extends Router
 
     function deploy()
     {
+
         $query = $this->conn->prepare('SELECT 
     kw.dn_url
-FROM
-    transaction_result AS tres
-        LEFT JOIN
-    transaction_outgoing AS tout ON tres.msg_id = tout.msg_id
+FROM 
+    transaction_outgoing AS tout
         LEFT JOIN
     keyword AS kw ON tout.keyword = kw.name
 WHERE
-    tres.msg_id =? LIMIT 1');
+    tout.msg_id =? LIMIT 1');
 
         $query->bind_param('s', $this->payload['message_id']);
         $query->execute();
